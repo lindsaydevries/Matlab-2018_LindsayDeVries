@@ -72,6 +72,54 @@ vect5 = 0:3.1416:15.7080;
 vectlin6 = linspace(0, 5*pi, 6); 
 vect6 = 0:pi:5*pi; 
 
+% Q 2.4 %
+
+str = 'aaaaaaaaaaaaaaaaaaaa';
+
+str(3:3:end)='c'; 
+
+str(2:3:end)='b'; 
+
+disp(str(3:3:end));
+
+str(4:6) = 'def'; 
+
+str([4:6 10:12 16:18])='defdefdef'; 
+ 
+str([6 12 18]);
+
+% Q 2.5 % 
+
+exp = 12:1.23:100; 
+
+exp = exp(1:40); 
+
+exp(5); 
+
+disp(exp(end)); 
+
+% Q 2.6 %
+
+resp='rerekererererererererererererererererere';
+
+resp(5);
+
+resp(5) = 'r'; 
+
+disp(resp(2:2:end)); 
+
+% Q 2.7 %
+
+vect = 12:-1:1; 
+
+%% Went through letters a-g in the prompt. Doesn't seem I need to put anything else here from what I can tell. %% 
+
+
+
+
+
+
+
 
 
 
