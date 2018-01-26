@@ -52,7 +52,10 @@ disp(str(id1))
 % you get:         cosy little nook
 % (Hint, write the phrase "nosey little cook" on a piece of paper and number each letter)
 
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 %% Q 2.3: Creating vectors.
 
 % Create the following vectors using both linspace and the colon ‘:’ technique
@@ -61,6 +64,7 @@ v = [20    18    16    14    12    10     8     6];
 v = [1.1000 1.3268 1.5537 1.7805 2.0074 2.2342 2.4611 2.6879 2.9147 3.1416];
 v = [20 19 18 17 16 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1];
 
+<<<<<<< Updated upstream
 v1_lin= linspace(20,6,8);
 v1= 20:-2:6;
 
@@ -69,6 +73,8 @@ v2= 1.1:.2268:3.1416;
 
 v3_lin = linspace(20,1, 20); 
 v3 = 20:-1:1; 
+=======
+>>>>>>> Stashed changes
 
 %% Q 2.4: More indexing into strings.
 
@@ -107,8 +113,11 @@ exp = exp(1:20);
 
 % b) When was the fifth measurement taken?
 
+<<<<<<< Updated upstream
 exp(5); 
 
+=======
+>>>>>>> Stashed changes
 % c) Display the last measurement, using the command
 % end
 
@@ -121,6 +130,7 @@ exp(end);
 % Start with stimlist='hhhhhhhhhhhhhhhh'
 % a) Turn stimlist into a string showing which trials contained happy faces and which trials contained sad faces.
 
+<<<<<<< Updated upstream
 stimlist='hhhhhhhhhhhhhhhh';
 
 sadtimes = [1     2     6     7    10    13    14    15];
@@ -134,6 +144,10 @@ disp(stimlist);
 
 sadvect = [1:4 9:12];
 happyvect = [5:8 13:16]; 
+=======
+% During trials 1-4 and 9-12 sad music was playing. During the other trials happy music was playing.
+% b) Create two vectors, sadvect and happyvect that contain the trials when sad and happy music was playing, respectively.
+>>>>>>> Stashed changes
 
 % At the end of the experiment, you end up with a string showing how the subject categorized the faces.
 
