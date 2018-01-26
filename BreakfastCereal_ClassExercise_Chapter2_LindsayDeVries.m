@@ -90,13 +90,15 @@ str([6 12 18]);
 
 % Q 2.5 % 
 
-exp = 12:1.23:100; 
+% it's a really bad idea to use exp as a variable since it's also an
+% important function in Matlab, can lead to terrible bugs
+myexp = 12:1.23:100; 
 
-exp = exp(1:40); 
+myexp = myexp(1:40); 
 
-exp(5); 
+myexp(5); 
 
-disp(exp(end)); 
+disp(myexp(end)); 
 
 % Q 2.6 %
 
