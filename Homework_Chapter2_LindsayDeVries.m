@@ -13,6 +13,8 @@
 
 % a) Start with a string containing A PACK OF LIES and replace the P with an L and the L with a P.
 
+% Nicely done!
+
 lie = 'A PACK OF LIES';
 lie_scrambled = lie;
 lie_scrambled(3) = 'L';
