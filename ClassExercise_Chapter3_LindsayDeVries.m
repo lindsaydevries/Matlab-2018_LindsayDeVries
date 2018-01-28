@@ -111,4 +111,4 @@ w = [1 1 1 0 1]/4;
 % Show that the inner product of w and heights is the mean height after taking out the fourth value.
 
 prod2 = w([1:3,5])*heights([1:3,5]); %% this wasn't elegant was it?
-
+% that's why inner products are cool!
