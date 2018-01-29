@@ -14,7 +14,7 @@ mean(mat(:));
 % c) Square each element of mat, and calculate the mean along each column.
 
 mat.^2;
-mean(mat.^2'); 
+mean(mat.^2); % transposing 2 does nothing 
 
 %% Q 3.2: more basic calculations.
  
@@ -26,7 +26,7 @@ vect=(1:15).^2;
 
 even = (mod(vect,2)==0);
 vect(even); 
-mean(vect(even)); 
+mean(vect(even)); % nicely done!
 
 %% Q 3.7: Inner and Outer Products
 
