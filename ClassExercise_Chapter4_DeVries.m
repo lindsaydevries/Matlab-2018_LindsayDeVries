@@ -97,6 +97,9 @@ for i = 1:5
     D(:,i) = [1 2 3 4 5]; % love me a for loop
 end
 
+%% or D=repmat([1:5]',1,5]); 
+%% [1:5]'*ones(1,5); 
+
 E=ones(6); 
 for i=1:6
     for j=1:6
@@ -104,7 +107,11 @@ for i=1:6
             E(i,j)=2; 
         end
     end
-end %% i had to cheat and look at the exercise answers for this, but I think I get the logic here (using debug and stepping through). 
+end %% i had to cheat and look at the exercise answers for this, but I think I get the logic here (using debug and stepping through).
+
+% for i = 1:6
+%     E(i, i:end) = 2;
+% end
 
 F=ones(5);
 for i=1:5
@@ -115,6 +122,8 @@ G=ones(5);
 for i=1:5
     G(:,i)=[1 2 3 4 5]+((i-1)*5);
 end
+
+%% G=reshape(1:25, 5, 5); reshapes a vector into a matrix
 
 H=zeros(8); % took me a long time to figure out zeros instead of ones here :) 
 H(:,1:2:end)=1; 
@@ -133,16 +142,21 @@ for i = 1:5
     J(:,i)=[0 1 2 3 4]+(i-1); 
 end
 
+% for i=1:2:8
+% J(i,1)=1;
+% end
+
 K=ones(5);
 for i = 1:5
     K(i,:)=i:i:5*i; %had to look up this part after playing with it for awhile. didn't think of using i that way!
 end
 
-
 L=ones(5);
 for i = 1:5
     L(i,:)=[1:5]+((i-1)*5); %% harder than it looked
 end
+
+%% L = reshape(1:25,5,5)';
 
 %% Q 4.2: 3d matrices
 
@@ -201,12 +215,11 @@ x>2 && y<4 || z==0
 
 %Write a script that repeatedly rolls two dice using this command:
 
-roll = ceil(rand(1,2));
-
+% roll = ceil(rand(1,2));
 
 % and counts the number of rolls until [1,1] (‘snake eyes’) comes up.
 
-count=1;
+count=0;
 roll = ceil(rand(1,2)*6);
 
 while sum(roll) > 2
