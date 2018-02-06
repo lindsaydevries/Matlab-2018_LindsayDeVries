@@ -11,7 +11,7 @@ M =  [2    2     2     2     2     2
      1     1     2     2     2     2
      1     1     1     2     2     2
      1     1     1     1     2     2
-     1     1     1     1     1     2];
+     1     1     1     1     1     2]; 
  
  M=ones(6,6);
  for i=1:6
@@ -74,6 +74,14 @@ end
 
 image(M2);
 colormap(col);
+
+ramp=1:156;
+
+sw=sin(linspace(-4*pi,4*pi,256)); 
+sw_scaled=(sw/2)+.5; 
+plot(sw_scaled)
+cmap=repmat(sw_scaled',1,3); 
+image(ramp); colormap(cmap); 
 
 % Apply this color map to the ramp image.  You should get this:  A sinusoidal grating!  
 % Think about why this happens using the ‘paint pots’ analogy.
