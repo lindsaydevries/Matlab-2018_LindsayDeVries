@@ -128,7 +128,7 @@ timevec(dataindex2);
 % %
 % % On the remaining rats he collects 10000 trials, and he calculates the % correct across each bin of 100 trials.
 
-ratID=Shuffle(1:70); ratID=sort(ratID(1:50));
+ratID=randperm(70); ratID=sort(ratID(1:50));
 binsteps=1:100:10000;
 [X, Y]=meshgrid(1:length(ratID), 1:length(binsteps));
 per=Y+randi(10, size(Y))-5;
@@ -138,8 +138,8 @@ per(per<0)=0;
 % % a) image the rats performance in a matrix with trials along the x axis and rats along the y axis using a colormap that varies between white for 100% correct and black for 0% correct (not using imagesc)
 % 
 cmap=colormap(gray(100));
-cmap(per==0, :)= 0;
-cmap(per==100, :)= 1;
+% cmap(per==0, :)= 0;
+% cmap(per==100, :)= 1; % don't need these lines
 image(per); 
 colormap(cmap); %% i just chose 100 for the number of trials but not sure that's a good metric to adjust your colormap by..
 
@@ -155,19 +155,17 @@ colormap(cmap);
 
 trialind=find(binsteps>=6001 & binsteps<=7001); 
 
-per_trialind=per(trialind);
+per_trialind=per(trialind, :);
+per66_ind=find(mean(per_trialind, 1) > 66);
+numel(per66_ind)
 
-per66_ind=find(per_trialind > 66);
-
-per66=per_trialind(per66_ind); 
-
-pernum66=numel(per66);
-
-disp(pernum66); %% dunno if this is the most efficient way, but sometimes it helps me do each logical step when i'm thinking through it.
+% I think you went round in a small circle?
+% dunno if this is the most efficient way, but sometimes it helps me do each logical step when i'm thinking through it.
+% taking it a step at a time is sensible
 
 % % d) which rats were they?
 
-rat66ID=Y(per66_ind);
+rat66ID=ratID(per66_ind); %almost, you had the point
 disp(rat66ID); 
 
 % % e) How many trials would be needed for 40/50 rats to be performing above 80%.
@@ -177,8 +175,19 @@ trialnumidx=X(per80);
 trialnum=round(numel(trialnumidx)*.8); 
 disp(trialnum); %my brain is broken and im not sure my logic is sound here. 
 
+% think about this, I think Geoff did it a little differently
+per80=per>80;
+numover80=sum(per80,2);
+minTover80=find(numover80>40);
+minTover80(1);
+binsteps(minTover80)
+
 % % f) It turns out that for the rats with even ID numbers (2, 4, 6 10 etc.) the recording machine was on the blink for an interval between the 5678th trial and the 7533rd trial. Convert those numbers to NaN.
 % %
+badBins=find(binsteps>=5678 & binsteps<=7533); 
+badRats=mod(ratID,2)==0;
+perBad=per;
+perBad(badBins, badRats)=NaN;
+imagesc(perBad)
 
-trialind2=find(binsteps>=5678 & binsteps<=7533); 
-per(trialind2)= nan; 
+
