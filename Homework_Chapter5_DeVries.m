@@ -157,7 +157,7 @@ trialind=find(binsteps>=6001 & binsteps<=7001);
 
 per_trialind=per(trialind, :);
 per66_ind=find(mean(per_trialind, 1) > 66);
-numel(per66_ind)
+numel(per66_ind) % this is a really nice way to do this
 
 % I think you went round in a small circle?
 % dunno if this is the most efficient way, but sometimes it helps me do each logical step when i'm thinking through it.
@@ -170,24 +170,23 @@ disp(rat66ID);
 
 % % e) How many trials would be needed for 40/50 rats to be performing above 80%.
 
-per80=find(per > 80); 
+per80=find(per > 80); % this turns things into a vector which is going to make finding the rat ID's really hard
 trialnumidx=X(per80); 
 trialnum=round(numel(trialnumidx)*.8); 
 disp(trialnum); %my brain is broken and im not sure my logic is sound here. 
 
-% think about this, I think Geoff did it a little differently
+% think about this way of doing it ( I think Geoff did it a little differently
 per80=per>80;
 numover80=sum(per80,2);
 minTover80=find(numover80>40);
 minTover80(1);
-binsteps(minTover80)
+binsteps(minTover80(1))
 
 % % f) It turns out that for the rats with even ID numbers (2, 4, 6 10 etc.) the recording machine was on the blink for an interval between the 5678th trial and the 7533rd trial. Convert those numbers to NaN.
 % %
 badBins=find(binsteps>=5678 & binsteps<=7533); 
-badRats=mod(ratID,2)==0;
 perBad=per;
-perBad(badBins, badRats)=NaN;
-imagesc(perBad)
+perBad([badBins], find(mod(ratID,2)==0))=NaN;
+imagesc(perBad')
 
 
