@@ -102,14 +102,8 @@ set(a2, 'YLim', [0 1.2])
 % QUESTION 1. Add a stacked bar plot in this subplot.
 % use >doc bar for help or try this code as an example
 
-% y = [1 2 3; 4 5 6];
-% ax1 = subplot(2,1,1);
-% bar(ax1,y)
-% ax2 = subplot(2,1,2);
-% bar(ax2,y,'stacked')
-
-a3=subplot(2,2,3); %% this is blank for some reason??
-
+ax1 = subplot(2,2,3);
+bar([women_pc women_apple; men_pc men_apple],'stacked')
 % ================================%
 
 a4=subplot(2,4,7); title('women');
